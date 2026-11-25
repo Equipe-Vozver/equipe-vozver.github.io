@@ -88,18 +88,14 @@ a:focus {
 }
 
 /* ===== Parte de cima (texto + celular) ===== */
-main {
+.inicio {
     max-width: 60rem;
     margin: 0 auto;
-    padding: 0 1rem;
-}
-
-.inicio {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 3rem;
-    padding: 3rem 0;
+    padding: 3rem 1.5rem;
 }
 
 .inicio-texto {
@@ -162,30 +158,58 @@ mark {
     border-radius: 1.4rem;
 }
 
-/* ===== Seções ===== */
-h2 {
-    font-size: 2rem;
-    margin-top: 3rem;
+/* ===== Seções em faixas (cada uma ocupa a largura toda da tela) ===== */
+
+/* Faixa que abre cada caminho ("Pra quem quer conhecer" e "Pra quem já tem o produto") */
+.faixa-titulo {
+    margin: 0;
+    padding: 3rem 1.5rem;
+    background-color: var(--botao);
+    color: var(--botao-texto);
+    font-size: 2.2rem;
+    text-align: center;
 }
 
-.cartao {
+.faixa {
+    padding: 4rem 1.5rem;
+}
+
+/* Uma faixa sim, outra não, fica com fundo diferente */
+.faixa-clara {
     background-color: var(--cartao);
-    border: 2px solid var(--borda);
-    padding: 1rem 1.5rem;
-    margin-bottom: 1.5rem;
-    border-radius: 16px;
 }
 
-.cartao li {
+/* O texto de cada faixa fica numa coluna no meio da tela (fica mais fácil de ler) */
+.faixa > * {
+    max-width: 50rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Título grande de cada faixa */
+.faixa h3 {
+    margin-top: 0;
+    font-size: 2.4rem;
+    line-height: 1.2;
+}
+
+/* O "01 / QUEM SOMOS" pequeno em cima do título */
+.etiqueta {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--destaque);
+}
+
+.faixa p,
+.faixa li {
+    font-size: 1.15rem;
+}
+
+.faixa li {
     margin-bottom: 0.75rem;
-}
-
-/* Frase com uma barra azul do lado */
-.frase {
-    font-size: 1.3rem;
-    font-weight: bold;
-    border-left: 6px solid var(--destaque);
-    padding-left: 1rem;
 }
 
 /* ===== Rodapé ===== */

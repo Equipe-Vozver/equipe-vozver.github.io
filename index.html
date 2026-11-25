@@ -2,127 +2,121 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <!-- Não colocamos "maximum-scale" aqui: assim a pessoa pode dar zoom à vontade -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>vozver – Ouça, Encontre, Escolha</title>
-    <meta name="description" content="O vozver é um app que ajuda pessoas com baixa visão a fazer compras no mercado com autonomia.">
+    <meta name="description" content="O vozver é um app que ajuda pessoas com baixa visão a fazer compras no mercado.">
     <link rel="stylesheet" href="css/estilo.css">
 </head>
 <body>
-    <!-- Primeiro link da página: quem usa teclado ou leitor de tela pula direto para o conteúdo -->
-    <a class="pular-conteudo" href="#conteudo">Pular para o conteúdo</a>
 
+    <!-- Link para quem usa teclado pular direto para o conteúdo -->
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- Barra do topo -->
     <header class="topo">
-        <!-- [CONFIRMAR] O logo entra aqui quando o grupo mandar o arquivo -->
-        <h1 class="marca">vozver</h1>
-        <p class="slogan">Ouça, Encontre, Escolha.</p>
+        <a class="logo" href="#inicio">vozver</a>
 
-        <!-- Os dois caminhos do topo -->
-        <!-- [CONFIRMAR] texto dos botões -->
-        <nav aria-label="Escolha o seu caminho">
-            <a class="botao-caminho" href="#conhecer">Quero conhecer</a>
-            <a class="botao-caminho" href="#ja-uso">Já uso o vozver</a>
+        <nav aria-label="Menu principal">
+            <a href="#inicio">Início</a>
+            <a href="#como-funciona">Como funciona</a>
+            <a href="#planos">Planos</a>
+            <a href="#responsaveis">Equipe</a>
+            <a href="#suporte">Contato</a>
         </nav>
     </header>
 
-    <main id="conteudo" tabindex="-1">
+    <main id="conteudo">
 
-        <!-- ===== Caminho 1: para quem ainda não usa ===== -->
+        <!-- Parte de cima: texto e desenho do celular -->
+        <section id="inicio" class="inicio">
+            <div class="inicio-texto">
+                <p class="slogan">Ouça, Encontre, Escolha.</p>
+                <h1>Compras no mercado com autonomia, <mark>ouvindo cada produto</mark></h1>
+                <p>O vozver é um app para pessoas com baixa visão. Ele fala o nome, o preço e o corredor dos produtos.</p>
+
+                <a class="botao" href="#conhecer">Quero conhecer</a>
+                <a class="botao botao-borda" href="#ja-uso">Já uso o vozver</a>
+            </div>
+
+            <!-- Desenho do celular (só enfeite, o leitor de tela pula) -->
+            <div class="celular" aria-hidden="true">
+                <p class="celular-nome">vozver</p>
+                <p class="celular-slogan">Ouça, Encontre, Escolha.</p>
+            </div>
+        </section>
+
+        <!-- Caminho 1: para quem ainda não usa -->
         <section id="conhecer">
             <h2>Pra quem quer conhecer</h2>
 
-            <section id="quem-somos">
+            <section class="cartao" id="quem-somos">
                 <h3>Quem somos</h3>
-                <p>Rótulos com letra miúda, preços em etiquetas pequenas e corredores
-                    sem placas fáceis de ler. O mercado ainda é pensado só para quem
-                    enxerga bem.
-                </p>
-                <p>
-                    O <strong>vozver</strong> nasceu para mudar isso. É um app que ajuda
-                    pessoas com baixa visão a fazer compras com autonomia, sem depender
-                    de alguém para ler rótulos e preços.
-                </p>
-                <p class="frase-destaque">
-                    Faça suas compras do seu jeito, ouvindo o que a prateleira não fala.
-                </p>
-
+                <p>Rótulos com letra miúda, preços em etiquetas pequenas e corredores sem placas fáceis de ler. O mercado ainda é pensado só para quem enxerga bem.</p>
+                <p>O <strong>vozver</strong> nasceu para mudar isso. É um app que ajuda pessoas com baixa visão a fazer compras com autonomia, sem depender de alguém para ler rótulos e preços.</p>
+                <p class="frase">Faça suas compras do seu jeito, ouvindo o que a prateleira não fala.</p>
             </section>
 
-            <section id="usabilidade">
+            <section class="cartao" id="usabilidade">
                 <h3>Usabilidade do vozver</h3>
                 <p>O vozver foi feito para ser fácil de usar com baixa visão:</p>
                 <ul>
-                    <li><strong>Fala sozinho:</strong> cada tela fala em voz alta, em português, assim que abre.</li>
+                    <li><strong>Fala sozinho:</strong> cada tela fala em voz alta assim que abre.</li>
                     <li><strong>Letra grande:</strong> você escolhe o tamanho da letra.</li>
-                    <li><strong>Contraste forte e tema escuro:</strong> cores fáceis de distinguir, de dia ou de noite.</li>
-                    <li><strong>Botões grandes e dois toques:</strong> o primeiro toque fala a opção e o segundo abre. Assim você não abre nada sem querer.</li>
+                    <li><strong>Contraste forte e tema escuro:</strong> cores fáceis de ver, de dia ou de noite.</li>
+                    <li><strong>Botões grandes e dois toques:</strong> o primeiro toque fala a opção e o segundo abre.</li>
                     <li><strong>Voz no seu ritmo:</strong> deixe a fala mais lenta ou mais rápida.</li>
-                    <li><strong>Sem cadastro:</strong> não pede conta, nem senha, nem e-mail.</li>
+                    <li><strong>Sem cadastro:</strong> não pede conta, senha nem e-mail.</li>
                     <li><strong>Funciona com o TalkBack</strong>, o leitor de tela do Android.</li>
                 </ul>
             </section>
-            </section>
 
-            <section id="como-funciona">
+            <section class="cartao" id="como-funciona">
                 <h3>Como funciona</h3>
-                <ol class="passos">
-                    <li>
-                        <strong>Ouça.</strong>
-                        Abra o vozver e ele fala com você.
-                    </li>
-                    <li>
-                        <strong>Encontre.</strong>
-                        Diga o nome do produto e ouça em qual corredor ele fica e como chegar lá.
-                    </li>
-                    <li>
-                        <strong>Escolha.</strong>
-                        Aponte a câmera para o código de barras e ouça o nome, o preço e a
-                        comparação entre as marcas pelo preço por quilo ou por litro.
-                    </li>
+                <ol>
+                    <li><strong>Ouça.</strong> Abra o vozver e ele fala com você.</li>
+                    <li><strong>Encontre.</strong> Diga o nome do produto e ouça em qual corredor ele fica e como chegar lá.</li>
+                    <li><strong>Escolha.</strong> Aponte a câmera para o código de barras e ouça o nome, o preço e a comparação entre as marcas.</li>
                 </ol>
             </section>
 
-            <section id="planos">
+            <section class="cartao" id="planos">
                 <h3>Planos disponíveis</h3>
                 <p>Em breve.</p>
             </section>
 
-            <section id="responsaveis">
+            <section class="cartao" id="responsaveis">
                 <h3>Quem são os responsáveis</h3>
                 <p>Em breve.</p>
             </section>
 
-            <section id="adquirir">
+            <section class="cartao" id="adquirir">
                 <h3>Quero adquirir o vozver. Como faço?</h3>
                 <p>Em breve.</p>
             </section>
         </section>
 
-        <!-- ===== Caminho 2: para quem já tem o app ===== -->
+        <!-- Caminho 2: para quem já tem o app -->
         <section id="ja-uso">
             <h2>Pra quem já tem o produto</h2>
 
-            <section id="primeiros-passos">
+            <section class="cartao" id="primeiros-passos">
                 <h3>Primeiros passos</h3>
                 <p>Em breve.</p>
             </section>
 
-            <section id="dicas">
+            <section class="cartao" id="dicas">
                 <h3>Dicas de uso</h3>
                 <p>Em breve.</p>
             </section>
 
-            <section id="perguntas">
+            <section class="cartao" id="perguntas">
                 <h3>Perguntas frequentes</h3>
                 <p>Em breve.</p>
             </section>
 
-            <section id="suporte">
+            <section class="cartao" id="suporte">
                 <h3>Contato de suporte</h3>
-                <p>
-                    Escreva para
-                    <a href="mailto:vozvercontato@gmail.com">vozvercontato@gmail.com</a>
-                </p>
+                <p>Escreva para <a href="mailto:vozvercontato@gmail.com">vozvercontato@gmail.com</a></p>
             </section>
         </section>
 
@@ -130,8 +124,8 @@
 
     <footer class="rodape">
         <p>vozver · Ouça, Encontre, Escolha.</p>
-        <!-- [CONFIRMAR] endereço exato da Política de Privacidade dentro do app -->
         <p><a href="https://vozver.onrender.com">Política de Privacidade do app</a></p>
     </footer>
+
 </body>
 </html>

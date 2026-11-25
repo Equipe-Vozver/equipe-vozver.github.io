@@ -1,33 +1,34 @@
-/* ===== estilo.css: visual do site do vozver ===== */
-/* As cores são as mesmas do app: azul-marinho, lavanda e amarelo */
+/* ===== Estilo do site do vozver ===== */
+/* As cores são as mesmas do app (tiradas do base.css da PWA) */
 
-/* ---------- Cores do tema claro ---------- */
-/* Guardamos as cores em "variáveis" para trocar todas de uma vez no tema escuro */
+/* Cores do tema claro */
 :root {
-    --fundo: #e0eafc;          /* lavanda */
-    --fundo-cartao: #ffffff;
-    --texto: #0d1b3e;          /* azul-marinho */
-    --botao-fundo: #0d1b3e;
+    --fundo: #e3edff;
+    --cartao: #ffffff;
+    --texto: #0e1d3d;
+    --borda: #304470;
+    --escolhido: #c9dbff;
+    --botao: #0e1d3d;
     --botao-texto: #ffffff;
-    --destaque: #ffd23f;       /* amarelo */
+    --destaque: #304470;
 }
 
-/* ---------- Cores do tema escuro ---------- */
-/* Entra sozinho quando o celular ou o computador está no modo escuro */
+/* Cores do tema escuro (entra sozinho se o celular estiver no modo escuro) */
 @media (prefers-color-scheme: dark) {
     :root {
-        --fundo: #0d1b3e;
-        --fundo-cartao: #16285a;
-        --texto: #e0eafc;
-        --botao-fundo: #ffd23f;
-        --botao-texto: #0d1b3e;
+        --fundo: #050f22;
+        --cartao: #304470;
+        --texto: #ffffff;
+        --borda: #ffffff;
+        --escolhido: #4f6aa8;
+        --botao: #e3edff;
+        --botao-texto: #050f22;
+        --destaque: #ffffff;
     }
 }
 
-/* ---------- Base ---------- */
+/* Letra maior que o normal (18px) */
 html {
-    /* 112,5% = 18px no padrão. Usamos % (e não px) para respeitar
-       a pessoa que aumentou a letra nas configurações do navegador */
     font-size: 112.5%;
 }
 
@@ -35,146 +36,166 @@ body {
     margin: 0;
     background-color: var(--fundo);
     color: var(--texto);
-    font-family: 'Poppins', system-ui, sans-serif;
-    line-height: 1.6;          /* linhas mais espaçadas ajudam a leitura */
+    font-family: Poppins, Arial, sans-serif;
+    line-height: 1.6;
 }
 
-/* Rolagem suave só para quem NÃO pediu "reduzir movimento" */
-@media (prefers-reduced-motion: no-preference) {
-    html {
-        scroll-behavior: smooth;
-    }
+a {
+    color: var(--texto);
 }
 
-/* ---------- Link "Pular para o conteúdo" ---------- */
-/* Fica escondido fora da tela e aparece quando recebe o foco do teclado */
-.pular-conteudo {
+/* Contorno forte em tudo que recebe o foco do teclado */
+a:focus {
+    outline: 4px solid var(--texto);
+    outline-offset: 4px;
+}
+
+/* Link "Pular para o conteúdo": escondido até receber o foco */
+.pular {
     position: absolute;
     left: -9999px;
-    top: 0;
 }
 
-.pular-conteudo:focus {
+.pular:focus {
     left: 1rem;
     top: 1rem;
-    padding: 0.75rem 1.25rem;
-    background-color: var(--botao-fundo);
-    color: var(--botao-texto);
-    font-weight: 700;
-    z-index: 10;
+    padding: 1rem;
+    background-color: var(--cartao);
 }
 
-/* ---------- Foco visível ---------- */
-/* Anel duplo (azul por dentro e amarelo por fora): aparece em qualquer fundo */
-a:focus-visible,
-button:focus-visible {
-    outline: 4px solid var(--texto);
-    outline-offset: 2px;
-    box-shadow: 0 0 0 8px var(--destaque);
-}
-
-/* O <main> recebe o foco do "Pular para o conteúdo", mas não é um botão,
-   então não precisa do anel */
-main:focus {
-    outline: none;
-}
-
-/* ---------- Topo ---------- */
+/* ===== Barra do topo ===== */
 .topo {
-    text-align: center;
-    padding: 2rem 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1.5rem;
+    background-color: var(--cartao);
+    border-bottom: 2px solid var(--borda);
 }
 
-.marca {
-    font-size: 3rem;
-    margin: 0;
+.logo {
+    font-size: 2rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.topo nav a {
+    display: inline-block;
+    padding: 0.75rem 0.5rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* ===== Parte de cima (texto + celular) ===== */
+main {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.inicio {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 3rem;
+    padding: 3rem 0;
+}
+
+.inicio-texto {
+    flex: 1 1 20rem;
 }
 
 .slogan {
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin: 0 0 1.5rem;
+    font-weight: bold;
 }
 
-/* Os dois botões do topo: um embaixo do outro no celular, lado a lado se couber */
-.topo nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+h1 {
+    font-size: 2.6rem;
+    line-height: 1.2;
 }
 
-.botao-caminho {
+/* Marca-texto atrás das palavras (mesma cor do "cartão escolhido" do app) */
+mark {
+    background-color: var(--escolhido);
+    color: var(--texto);
+}
+
+/* ===== Botões ===== */
+.botao {
     display: inline-block;
-    min-height: 3rem;          /* área de toque grande (mais de 48px) */
+    margin: 1rem 0.5rem 0 0;
     padding: 1rem 1.5rem;
-    background-color: var(--botao-fundo);
+    background-color: var(--botao);
     color: var(--botao-texto);
-    font-size: 1.2rem;
-    font-weight: 700;
-    text-decoration: none;
+    border: 3px solid var(--botao);
     border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
-/* ---------- Conteúdo ---------- */
-main {
-    max-width: 50rem;          /* em rem: cresce junto com o zoom */
+.botao-borda {
+    background-color: transparent;
+    color: var(--texto);
+}
+
+/* ===== Desenho do celular ===== */
+/* A tela imita a tela de carregamento do app */
+.celular {
+    width: 13rem;
+    height: 24rem;
     margin: 0 auto;
-    padding: 0 1rem 2rem;
+    background: linear-gradient(37deg, #304470 0%, #0e1d3d 69%);
+    border: 10px solid #222;
+    border-radius: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
+.celular-nome {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.celular-slogan {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #c9dbff;
+}
+
+/* ===== Seções ===== */
 h2 {
     font-size: 2rem;
     margin-top: 3rem;
 }
 
-h3 {
-    font-size: 1.5rem;
-}
-
-/* Cada parte do conteúdo vira um "cartão" */
-main section section {
-    background-color: var(--fundo-cartao);
-    padding: 1.25rem 1.5rem;
+.cartao {
+    background-color: var(--cartao);
+    border: 2px solid var(--borda);
+    padding: 1rem 1.5rem;
     margin-bottom: 1.5rem;
     border-radius: 16px;
 }
 
-/* Links do texto: sempre sublinhados, para não depender só da cor */
-main a,
-.rodape a {
-    color: var(--texto);
-    font-weight: 600;
-    text-decoration: underline;
+.cartao li {
+    margin-bottom: 0.75rem;
 }
 
-/* ---------- Rodapé ---------- */
-.rodape {
-    text-align: center;
-    padding: 2rem 1rem;
-    border-top: 2px solid var(--texto);
-}
-/* ---------- Frase de destaque (Quem somos) ---------- */
-.frase-destaque {
+/* Frase com uma barra azul do lado */
+.frase {
     font-size: 1.3rem;
-    font-weight: 700;
+    font-weight: bold;
     border-left: 6px solid var(--destaque);
     padding-left: 1rem;
 }
 
-/* ---------- Listas ---------- */
-/* Mais espaço entre os itens para não embolar a leitura */
-main li {
-    margin-bottom: 0.75rem;
-}
-
-/* Os 3 passos do "Como funciona" com números grandes */
-.passos {
-    font-size: 1.15rem;
-    padding-left: 2rem;
-}
-
-.passos li::marker {
-    font-weight: 700;
-    font-size: 1.4rem;
+/* ===== Rodapé ===== */
+.rodape {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-top: 2px solid var(--borda);
 }

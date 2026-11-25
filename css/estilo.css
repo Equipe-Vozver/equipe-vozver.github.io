@@ -1,0 +1,156 @@
+/* ===== estilo.css: visual do site do vozver ===== */
+/* As cores são as mesmas do app: azul-marinho, lavanda e amarelo */
+
+/* ---------- Cores do tema claro ---------- */
+/* Guardamos as cores em "variáveis" para trocar todas de uma vez no tema escuro */
+:root {
+    --fundo: #e0eafc;          /* lavanda */
+    --fundo-cartao: #ffffff;
+    --texto: #0d1b3e;          /* azul-marinho */
+    --botao-fundo: #0d1b3e;
+    --botao-texto: #ffffff;
+    --destaque: #ffd23f;       /* amarelo */
+}
+
+/* ---------- Cores do tema escuro ---------- */
+/* Entra sozinho quando o celular ou o computador está no modo escuro */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --fundo: #0d1b3e;
+        --fundo-cartao: #16285a;
+        --texto: #e0eafc;
+        --botao-fundo: #ffd23f;
+        --botao-texto: #0d1b3e;
+    }
+}
+
+/* ---------- Base ---------- */
+html {
+    /* 112,5% = 18px no padrão. Usamos % (e não px) para respeitar
+       a pessoa que aumentou a letra nas configurações do navegador */
+    font-size: 112.5%;
+}
+
+body {
+    margin: 0;
+    background-color: var(--fundo);
+    color: var(--texto);
+    font-family: 'Poppins', system-ui, sans-serif;
+    line-height: 1.6;          /* linhas mais espaçadas ajudam a leitura */
+}
+
+/* Rolagem suave só para quem NÃO pediu "reduzir movimento" */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* ---------- Link "Pular para o conteúdo" ---------- */
+/* Fica escondido fora da tela e aparece quando recebe o foco do teclado */
+.pular-conteudo {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+}
+
+.pular-conteudo:focus {
+    left: 1rem;
+    top: 1rem;
+    padding: 0.75rem 1.25rem;
+    background-color: var(--botao-fundo);
+    color: var(--botao-texto);
+    font-weight: 700;
+    z-index: 10;
+}
+
+/* ---------- Foco visível ---------- */
+/* Anel duplo (azul por dentro e amarelo por fora): aparece em qualquer fundo */
+a:focus-visible,
+button:focus-visible {
+    outline: 4px solid var(--texto);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 8px var(--destaque);
+}
+
+/* O <main> recebe o foco do "Pular para o conteúdo", mas não é um botão,
+   então não precisa do anel */
+main:focus {
+    outline: none;
+}
+
+/* ---------- Topo ---------- */
+.topo {
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.marca {
+    font-size: 3rem;
+    margin: 0;
+}
+
+.slogan {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: 0 0 1.5rem;
+}
+
+/* Os dois botões do topo: um embaixo do outro no celular, lado a lado se couber */
+.topo nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.botao-caminho {
+    display: inline-block;
+    min-height: 3rem;          /* área de toque grande (mais de 48px) */
+    padding: 1rem 1.5rem;
+    background-color: var(--botao-fundo);
+    color: var(--botao-texto);
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 12px;
+}
+
+/* ---------- Conteúdo ---------- */
+main {
+    max-width: 50rem;          /* em rem: cresce junto com o zoom */
+    margin: 0 auto;
+    padding: 0 1rem 2rem;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-top: 3rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+/* Cada parte do conteúdo vira um "cartão" */
+main section section {
+    background-color: var(--fundo-cartao);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 16px;
+}
+
+/* Links do texto: sempre sublinhados, para não depender só da cor */
+main a,
+.rodape a {
+    color: var(--texto);
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+/* ---------- Rodapé ---------- */
+.rodape {
+    text-align: center;
+    padding: 2rem 1rem;
+    border-top: 2px solid var(--texto);
+}

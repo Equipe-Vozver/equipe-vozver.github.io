@@ -154,3 +154,27 @@ main a,
     padding: 2rem 1rem;
     border-top: 2px solid var(--texto);
 }
+/* ---------- Frase de destaque (Quem somos) ---------- */
+.frase-destaque {
+    font-size: 1.3rem;
+    font-weight: 700;
+    border-left: 6px solid var(--destaque);
+    padding-left: 1rem;
+}
+
+/* ---------- Listas ---------- */
+/* Mais espaço entre os itens para não embolar a leitura */
+main li {
+    margin-bottom: 0.75rem;
+}
+
+/* Os 3 passos do "Como funciona" com números grandes */
+.passos {
+    font-size: 1.15rem;
+    padding-left: 2rem;
+}
+
+.passos li::marker {
+    font-weight: 700;
+    font-size: 1.4rem;
+}

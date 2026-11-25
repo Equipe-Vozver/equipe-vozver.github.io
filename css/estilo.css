@@ -150,21 +150,16 @@ mark {
     border-radius: 2rem;
     text-align: center;
     display: flex;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
-.celular-nome {
-    margin: 0;
-    font-size: 2rem;
-    font-weight: bold;
-    color: #ffffff;
-}
-
-.celular-slogan {
-    margin: 0;
-    font-size: 0.9rem;
-    color: #c9dbff;
+/* A imagem preenche a tela do celular, com os cantos arredondados */
+.celular img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 1.4rem;
 }
 
 /* ===== Seções ===== */
